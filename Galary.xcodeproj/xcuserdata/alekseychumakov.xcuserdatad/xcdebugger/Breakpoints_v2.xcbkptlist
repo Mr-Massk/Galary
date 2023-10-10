@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F7A795F3-CF2D-4026-96CB-0A8F9FA98E92"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A85C806A-3B12-4301-A82B-8888D2692A1F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "homeWork 11.3/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "rightAppearanceImageButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B827CD7-3DDE-4F2B-A612-6DA01D32864F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "homeWork 11.3/UIView+extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FEC7512-A08F-4F83-92FE-B816AA91C821"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Galary/FileManagerViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C193B78-A998-4131-AD9F-6945EFA707FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Galary/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "6C193B78-A998-4131-AD9F-6945EFA707FB - d5139a1c20130119"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.imagesArray.getter : Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  uuid = "6C193B78-A998-4131-AD9F-6945EFA707FB - 2377ec283c0123d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Galary.ViewController"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "273">
+               </Location>
+               <Location
+                  uuid = "6C193B78-A998-4131-AD9F-6945EFA707FB - 2e5670d81223b822"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Galary.ViewController&gt;"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "221">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Galary/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - 40d5e93e8fa412f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.mainViewImage.getter : __C.UIImageView"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - fde9a14aff812ec9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.mainViewImage.setter : __C.UIImageView"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - 11fa669a152865f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.mainViewImage.modify : __C.UIImageView"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - 6fa6e089acb433c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.mainViewImage.modify : __C.UIImageView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - 2377ec283c0123b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Galary.ViewController"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "732">
+               </Location>
+               <Location
+                  uuid = "BBC71E38-F76B-4D25-B539-7C6EF20BE3E4 - 2e5670d81223b843"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Galary.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Galary.ViewController&gt;"
+                  moduleName = "Galary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseychumakov/Desktop/newProjects/Galary/Galary/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "674">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
