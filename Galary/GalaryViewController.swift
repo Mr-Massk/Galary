@@ -8,6 +8,8 @@ class GalaryViewController: UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var bottomConstraitScrollView: NSLayoutConstraint!
+    @IBOutlet weak var mainView: UIView!
     
     // MARK: - let/var
     var mainViewImage = UIImageView()
@@ -24,6 +26,7 @@ class GalaryViewController: UIViewController {
         self.view.addSubview(hiddenViewImage)
         self.view.bringSubviewToFront(likeButton)
         GalaryArray.loadArray()
+        registerForKeyboardNotifications()
     }
     
     // MARK: - IBActions
@@ -51,6 +54,28 @@ class GalaryViewController: UIViewController {
     
     
     // MARK: - flow funcs
+    private func registerForKeyboardNotifications() {
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+            }
+    
+    @objc private func keyboardWillShow(_ notification: NSNotification) {
+            guard let userInfo = notification.userInfo,
+                  let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+                  let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                bottomConstraitScrollView.constant = 0
+            } else {
+                bottomConstraitScrollView.constant = keyboardScreenEndFrame.height + 10
+            }
+            
+            view.needsUpdateConstraints()
+            UIView.animate(withDuration: animationDuration) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    
     func settingsFirstViewImage() {
         mainViewImage.frame = CGRect(x: 0, y: screenHeight * 0.13, width: screenWidth, height: screenHeight * 0.67)
         mainViewImage.clipsToBounds = true
@@ -179,6 +204,17 @@ class GalaryViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    
+    
+    
+    
+    
+
+
+    
 }
+
+
 
 
