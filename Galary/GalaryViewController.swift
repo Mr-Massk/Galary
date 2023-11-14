@@ -204,12 +204,7 @@ class GalaryViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    
-    
-    
-    
-    
+        
 
 
     
