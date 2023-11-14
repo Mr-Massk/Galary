@@ -1,6 +1,3 @@
-var screenHeight = UIScreen.main.bounds.height
-var screenWidth = UIScreen.main.bounds.width
-
 import UIKit
 class GalaryViewController: UIViewController {
     // MARK: - IBOutlets
@@ -12,20 +9,23 @@ class GalaryViewController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     
     // MARK: - let/var
-    var mainViewImage = UIImageView()
-    var hiddenViewImage = UIImageView()
+    var mainViewImage = UIImageView() // возможно нужно будет переименовать firstImage
+    var hiddenViewImage = UIImageView() // возможно нужно будет переименовать secondImage
     var indexElementToArray = 0
-    var nextImageButtonPressed = true
+    var isNextImageButtonPressed = true
+    lazy var screenHeight = UIScreen.main.bounds.height
+    lazy var screenWidth = UIScreen.main.bounds.width
     
     // MARK: - lifecicle funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        GalaryArray.loadArray()
+        print(GalaryArray.imagesArray)
         settingsFirstViewImage()
         leftButton.dropShadow()
         rightButton.dropShadow()
-        self.view.addSubview(hiddenViewImage)
-        self.view.bringSubviewToFront(likeButton)
-        GalaryArray.loadArray()
+        self.mainView.addSubview(hiddenViewImage)
+        self.mainView.bringSubviewToFront(likeButton)
         registerForKeyboardNotifications()
     }
     
@@ -38,8 +38,8 @@ class GalaryViewController: UIViewController {
     }
     
     @IBAction func leftApperanceImageButtonPressed(_ sender: UIButton) {
-        changeDescriptionText()
         showPreviousImage()
+        changeDescriptionText()
         showDescriptionText()
         checkLikeButtonPressed()
     }
@@ -55,45 +55,64 @@ class GalaryViewController: UIViewController {
     
     // MARK: - flow funcs
     private func registerForKeyboardNotifications() {
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-            }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     @objc private func keyboardWillShow(_ notification: NSNotification) {
-            guard let userInfo = notification.userInfo,
-                  let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-                  let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-            
-            if notification.name == UIResponder.keyboardWillHideNotification {
-                bottomConstraitScrollView.constant = 0
-            } else {
-                bottomConstraitScrollView.constant = keyboardScreenEndFrame.height + 10
-            }
-            
-            view.needsUpdateConstraints()
-            UIView.animate(withDuration: animationDuration) {
-                self.view.layoutIfNeeded()
-            }
+        guard let userInfo = notification.userInfo,
+              let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+              let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            bottomConstraitScrollView.constant = 0
+        } else {
+            bottomConstraitScrollView.constant = keyboardScreenEndFrame.height + 10
         }
+        
+        view.needsUpdateConstraints()
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
     
     func settingsFirstViewImage() {
-        mainViewImage.frame = CGRect(x: 0, y: screenHeight * 0.13, width: screenWidth, height: screenHeight * 0.67)
+        //        mainViewImage.frame = CGRect(x: 0, y: /*screenHeight * 0.13*/ 100, width: /*screenWidth*/200, height: /*screenHeight * 0.67*/400)
         mainViewImage.clipsToBounds = true
         mainViewImage.contentMode = .scaleAspectFill
         assignImage(viewImage: mainViewImage)
-        self.view.addSubview(mainViewImage)
+        self.mainView.addSubview(mainViewImage)
+        settingsConstraintsMainViewImage()
         showDescriptionText()
         checkLikeButtonPressed()
+        let x = self.mainViewImage.frame.origin.x
+        let y = self.screenWidth
+        print(x - y)
     }
     
-    func settingsPositionHiddenImageView(main: UIImageView, hidden: UIImageView, nextImage: Bool) {
-        if nextImage {
+    func settingsConstraintsMainViewImage() {
+        mainViewImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            mainViewImage.leadingAnchor.constraint(equalTo: mainView.leadingAnchor,constant: 0),
+            mainViewImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor,constant: 0),
+            mainViewImage.topAnchor.constraint(equalTo: mainView.safeAreaLayoutGuide.topAnchor,constant: 60),
+            mainViewImage.bottomAnchor.constraint(equalTo: mainTextField.safeAreaLayoutGuide.topAnchor ,constant: -10)
+            //                mainViewImage.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 1),
+            //                mainViewImage.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    func settingsPositionHiddenImageView(main: UIImageView, hidden: UIImageView) {
+        if isNextImageButtonPressed {
             hidden.frame = CGRect(x: screenWidth , y: main.frame.origin.y, width: main.frame.width, height: main.frame.height)
-            self.view.bringSubviewToFront(hidden)
-            self.view.bringSubviewToFront(likeButton)
+            self.mainView.bringSubviewToFront(hidden)
+            self.mainView.bringSubviewToFront(likeButton)
+            print(false)
         } else {
+            print(true)
             hidden.frame = main.frame
-            self.view.sendSubviewToBack(hidden)
+            self.mainView.sendSubviewToBack(hidden)
         }
         hidden.contentMode = .scaleAspectFill
         hidden.clipsToBounds = true
@@ -112,11 +131,11 @@ class GalaryViewController: UIViewController {
     }
     
     func showNextImage() {
-        nextImageButtonPressed = true
+        isNextImageButtonPressed = true
         numberNextImage()
         assignImage(viewImage: self.hiddenViewImage)
-        settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage, nextImage: nextImageButtonPressed)
-        
+        settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage)
+        print(hiddenViewImage)
         UIView.animate(withDuration: 0.3) {
             self.hiddenViewImage.frame = self.mainViewImage.frame
         }
@@ -132,13 +151,16 @@ class GalaryViewController: UIViewController {
     }
     
     func showPreviousImage() {
-        nextImageButtonPressed = false
+        isNextImageButtonPressed = false
         numberPreviousImage()
         assignImage(viewImage: self.hiddenViewImage)
-        settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage, nextImage: nextImageButtonPressed)
+        settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage)
+        print(self.mainViewImage.frame.origin.x)
+        print(mainViewImage)
         UIView.animate(withDuration: 0.3) {
-            self.mainViewImage.frame.origin.x -= screenWidth
+            self.mainViewImage.frame.origin.x -= self.screenWidth
         }
+        
         func numberPreviousImage() {
             let quantityImages = GalaryArray.imagesArray.count
             if self.indexElementToArray > 0 {
@@ -204,9 +226,10 @@ class GalaryViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-        
-
-
+    
+    
+    
+    
     
 }
 
