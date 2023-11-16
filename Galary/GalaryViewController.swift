@@ -38,8 +38,8 @@ class GalaryViewController: UIViewController {
     }
     
     @IBAction func leftApperanceImageButtonPressed(_ sender: UIButton) {
-        showPreviousImage()
         changeDescriptionText()
+        showPreviousImage()
         showDescriptionText()
         checkLikeButtonPressed()
     }
@@ -87,7 +87,6 @@ class GalaryViewController: UIViewController {
         checkLikeButtonPressed()
         let x = self.mainViewImage.frame.origin.x
         let y = self.screenWidth
-        print(x - y)
     }
     
     func settingsConstraintsMainViewImage() {
@@ -98,8 +97,6 @@ class GalaryViewController: UIViewController {
             mainViewImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor,constant: 0),
             mainViewImage.topAnchor.constraint(equalTo: mainView.safeAreaLayoutGuide.topAnchor,constant: 60),
             mainViewImage.bottomAnchor.constraint(equalTo: mainTextField.safeAreaLayoutGuide.topAnchor ,constant: -10)
-            //                mainViewImage.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 1),
-            //                mainViewImage.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 0.3)
         ])
     }
     
@@ -169,6 +166,7 @@ class GalaryViewController: UIViewController {
                 self.indexElementToArray = quantityImages - 1
             }
         }
+        mainViewImage.translatesAutoresizingMaskIntoConstraints = true
         changePriorityShowImageView()
     }
     
