@@ -50,11 +50,13 @@ class RegistrationViewController: UIViewController {
     func savingCredentials(_ login: String, _ password: String) {
         UserDefaults.standard.set(login, forKey: "login")
         UserDefaults.standard.set(password, forKey: "password")
-        showAlert(title: "Success", message: "Data saving completed", goBack: true)
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "FileManagerViewController") as? FileManagerViewController else { return }
+        navigationController?.pushViewController(controller, animated: true)
+        showAlert(title: "Success", message: "Data saving completed")
     }
     
-    func goBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    func goBack() {
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
 }
