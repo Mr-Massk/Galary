@@ -12,7 +12,7 @@ class GalaryArray: Codable {
     static func creatingArrayObjects() {
         for i in imagesArray {
             if let object = UserDefaults.standard.value(Images.self, forKey: i) {
-                //                print(i)
+                
             } else {
                 let image = Images(name: i, description: "")
                 UserDefaults.standard.set(encodable: image, forKey: i)

@@ -9,8 +9,8 @@ class GalaryViewController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     
     // MARK: - let/var
-    var mainViewImage = UIImageView() // возможно нужно будет переименовать firstImage
-    var hiddenViewImage = UIImageView() // возможно нужно будет переименовать secondImage
+    var mainViewImage = UIImageView()
+    var hiddenViewImage = UIImageView()
     var indexElementToArray = 0
     var isNextImageButtonPressed = true
     lazy var screenHeight = UIScreen.main.bounds.height
@@ -20,7 +20,6 @@ class GalaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GalaryArray.loadArray()
-        print(GalaryArray.imagesArray)
         settingsFirstViewImage()
         leftButton.dropShadow()
         rightButton.dropShadow()
@@ -105,9 +104,7 @@ class GalaryViewController: UIViewController {
             hidden.frame = CGRect(x: screenWidth , y: main.frame.origin.y, width: main.frame.width, height: main.frame.height)
             self.mainView.bringSubviewToFront(hidden)
             self.mainView.bringSubviewToFront(likeButton)
-            print(false)
         } else {
-            print(true)
             hidden.frame = main.frame
             self.mainView.sendSubviewToBack(hidden)
         }
@@ -132,7 +129,6 @@ class GalaryViewController: UIViewController {
         numberNextImage()
         assignImage(viewImage: self.hiddenViewImage)
         settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage)
-        print(hiddenViewImage)
         UIView.animate(withDuration: 0.3) {
             self.hiddenViewImage.frame = self.mainViewImage.frame
         }
@@ -152,8 +148,6 @@ class GalaryViewController: UIViewController {
         numberPreviousImage()
         assignImage(viewImage: self.hiddenViewImage)
         settingsPositionHiddenImageView(main: self.mainViewImage, hidden: self.hiddenViewImage)
-        print(self.mainViewImage.frame.origin.x)
-        print(mainViewImage)
         UIView.animate(withDuration: 0.3) {
             self.mainViewImage.frame.origin.x -= self.screenWidth
         }
@@ -181,7 +175,6 @@ class GalaryViewController: UIViewController {
         if let image = UserDefaults.standard.value(Images.self, forKey: nameImage) {
             self.mainTextField.text = image.description
         } else {
-            print("Error")
             self.mainTextField.text = ""
         }
     }
@@ -214,12 +207,10 @@ class GalaryViewController: UIViewController {
                 self.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
                 image.isLiked = false
                 UserDefaults.standard.set(encodable: image, forKey: nameImage)
-                print(false)
             } else {
                 self.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 image.isLiked = true
                 UserDefaults.standard.set(encodable: image, forKey: nameImage)
-                print(true)
             }
             self.view.layoutIfNeeded()
         }
